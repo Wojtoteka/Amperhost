@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna | AmperHost</title>
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="img/logo.png" alt="" class="logo">
+                <span class="brand-name">AmperHost.xyz</span>
+            </div>
+            <div class="navbar-right">
+                <a href="/">Strona główna</a>
+                <a href="#offer">Oferta</a>
+                <a href="#advantage">Zalety</a>
+                <a href="https://dashboard.amperhost.xyz">Panel</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Najlepszy Hosting Minecraft</h1>
+        <p>Stwórz własny serwer Minecraft szybko i łatwo!</p>
+        <a href="#offer" class="cta-button">Sprawdź ofertę</a>
+    </section>
+
+    <section id="offer" class="offer">
+        <h1>Nasza oferta</h1>
+        <div class="card">
+            <h3>Pakiet Dirt</h3>
+            <p>Idealny dla małych serwerów.</p>
+            <p>RAM: <abbr title="">2 GB</abbr></p>
+            <p>Dysk: <abbr title="">5 GB</abbr></p>
+            <br>
+            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
+        </div>
+        <div class="card">
+            <h3>Pakiet Iron</h3>
+            <p>Idealny dla średnich serwerów.</p>
+            <p>RAM: <abbr title="">5 GB</abbr></p>
+            <p>Dysk: <abbr title="">10 GB</abbr></p>
+            <br>
+            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
+        </div>
+        <div class="card">
+            <h3>Pakiet Diax</h3>
+            <p>Idealny dla dużych serwerów.</p>
+            <p>RAM: <abbr title="">8 GB</abbr></p>
+            <p>Dysk: <abbr title="">15 GB</abbr></p>
+            <br>
+            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
+        </div>
+    </section>
+
+    <section id="advantage" class="advantages">
+        <h1>Dlaczego my?</h1>
+        <div class="advantage">
+            <h3>Wysoka wydajność</h3>
+            <p>Nasze serwery oferują najwyższą wydajność i niezawodność.</p>
+        </div>
+        <div class="advantage">
+            <h3>Pomoc 24/7</h3>
+            <p>Nasza pomoc techniczna jest dostępna przez cały czas.</p>
+        </div>
+        <div class="advantage">
+            <h3>Panel WWW</h3>
+            <p>Intuicyjny panel zarządzania ułatwia kontrolowanie serwera.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Pomoc</h3>
+                <p><a href="mailto:kontakt@amperhost.xyz">▪︎ kontakt@amperhost.xyz</a></p>
+                <p><a href="https://dc.amperhost.xyz">▪︎ Serwer Discord</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Informacje</h3>
+                <p><a href="https://dashboard.amperhost.xyz">▪︎ Panel zarządzania</a></p>
+                <p><a href="https://systems.amperhost.xyz">▪︎ Status serwerów</a></p>
+            </div>
+        </div>
+        <p>&copy; <span id="current-year"></span> AmperHost.xyz. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const yearSpan = document.getElementById('current-year');
+            const currentYear = new Date().getFullYear();
+            yearSpan.textContent = currentYear;
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

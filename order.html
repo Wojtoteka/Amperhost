@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamówienie | AmperHost</title>
+    <link rel="icon" href="img/logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(173, 216, 230);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        select,
+        input[type="submit"],
+        .payment-details {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .payment-details {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .summary {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+        }
+
+        .summary h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .summary-content {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .summary-content p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .close-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .close-btn button {
+            padding: 10px 20px;
+            background-color: #ccc;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn button:hover {
+            background-color: #bbb;
+        }
+
+        .admin-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .order-container {
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="admin-button" onclick="openAdminPanel()">🔒 Admin panel</button>
+    <div class="container">
+        <h2>Zamów serwer Minecraft</h2>
+        <form action="#" method="post" id="orderForm">
+            <label for="pakiet">Wybierz pakiet:</label>
+            <select id="pakiet" name="pakiet">
+                <option value="dirt">Dirt</option>
+                <option value="iron">Iron</option>
+                <option value="diax">Diax</option>
+            </select>
+            <label for="platnosc">Wybierz formę płatności:</label>
+            <select id="platnosc" name="platnosc" onchange="showPaymentDetails()">
+                <option value="blik">BLIK</option>
+                <option value="przelew">Przelew</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            <div id="paymentDetails" class="payment-details"></div>
+            <label for="okres">Wybierz okres:</label>
+            <select id="okres" name="okres">
+                <option value="14">14 dni</option>
+                <option value="30">30 dni</option>
+                <option value="60">60 dni</option>
+                <option value="90">90 dni</option>
+            </select>
+            <input type="submit" value="Zamów serwer" onclick="showSummary(event)">
+        </form>
+    </div>
+
+    <div id="summary" class="summary">
+        <div class="summary-content">
+            <h3>Podsumowanie zamówienia</h3>
+            <p>ID zamówienia: <span id="summaryID"></span></p>
+            <p>Pakiet: <span id="summaryPakiet"></span></p>
+            <p>Okres: <span id="summaryOkres"></span></p>
+            <p>Forma płatności: <span id="summaryPlatnosc"></span></p>
+            <p>Kwota do zapłaty: <span id="summaryKwota"></span></p>
+            <p>Prosimy o napisanie zgłoszenia na <a href="https://dc.amperhost.pl">Discordzie</a>, aby dokończyć
+                zamówienie.</p>
+        </div>
+        <div class="close-btn">
+            <button onclick="closeSummary()">Zamknij</button>
+        </div>
+    </div>
+
+    <script>
+        function generateID() {
+            return Math.floor(Math.random() * 1000) + 100;
+        }
+
+        function showPaymentDetails() {
+            var platnosc = document.getElementById("platnosc").value;
+            var paymentDetailsDiv = document.getElementById("paymentDetails");
+            paymentDetailsDiv.innerHTML = "";
+            switch (platnosc) {
+                case "blik":
+                    paymentDetailsDiv.innerHTML = '<label for="numerTelefonu">Numer telefonu do BLIKa:</label>' +
+                        '<input type="text" id="numerTelefonu" name="numerTelefonu" value="Dostępny na Discordzie" readonly>';
+                    break;
+                case "przelew":
+                    paymentDetailsDiv.innerHTML = '<label for="numerKonta">Numer konta do przelewu:</label>' +
+                        '<input type="text" id="numerKonta" name="numerKonta" value="Dostępny na Discordzie" readonly>';
+                    break;
+                case "paypal":
+                    paymentDetailsDiv.innerHTML = '<label for="adresEmail">Adres e-mail do PayPal:</label>' +
+                        '<input type="email" id="adresEmail" name="adresEmail" value="Dostępny na Discordzie" readonly>';
+                    break;
+                default:
+                    paymentDetailsDiv.innerHTML = "";
+                    break;
+            }
+            paymentDetailsDiv.style.display = "block";
+        }
+
+        function showSummary(event) {
+            event.preventDefault();
+            var pakiet = document.getElementById("pakiet").value;
+            var platnosc = document.getElementById("platnosc").value;
+            var okres = parseInt(document.getElementById("okres").value);
+            var summaryID = generateID();
+            var summaryPakiet = document.getElementById("summaryPakiet");
+            var summaryPlatnosc = document.getElementById("summaryPlatnosc");
+            var summaryOkres = document.getElementById("summaryOkres");
+            var summaryKwota = document.getElementById("summaryKwota");
+            var summaryIDSpan = document.getElementById("summaryID");
+            summaryIDSpan.textContent = summaryID;
+            summaryPakiet.textContent = pakiet;
+            summaryPlatnosc.textContent = platnosc;
+            summaryOkres.textContent = okres + " dni";
+            var cena;
+            switch (pakiet) {
+                case "dirt":
+                    cena = 10;
+                    break;
+                case "iron":
+                    cena = 20;
+                    break;
+                case "diax":
+                    cena = 30;
+                    break;
+                default:
+                    cena = 0;
+                    break;
+            }
+            var mnoznik;
+            switch (okres) {
+                case 14:
+                    mnoznik = 0.5;
+                    break;
+                case 30:
+                    mnoznik = 1;
+                    break;
+                case 60:
+                    mnoznik = 2;
+                    break;
+                case 90:
+                    mnoznik = 3;
+                    break;
+                default:
+                    mnoznik = 1;
+                    break;
+            }
+            var kwota = cena * mnoznik;
+            summaryKwota.textContent = kwota + " PLN";
+
+            var orderDetails = {
+                id: summaryID,
+                pakiet: pakiet,
+                platnosc: platnosc,
+                okres: okres,
+                kwota: kwota
+            };
+
+            saveOrder(orderDetails);
+
+            var summaryDiv = document.getElementById("summary");
+            summaryDiv.style.display = "block";
+        }
+
+        function closeSummary() {
+            var summaryDiv = document.getElementById("summary");
+            summaryDiv.style.display = "none";
+        }
+
+        function saveOrder(orderDetails) {
+            var orders = JSON.parse(localStorage.getItem("orders")) || [];
+            orders.push(orderDetails);
+            localStorage.setItem("orders", JSON.stringify(orders));
+        }
+    </script>
+
+    <script>
+        function openAdminPanel() {
+            window.open('admin.html', '_blank');
+        }
+    </script>
+
+</body>
+
+</html>

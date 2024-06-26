@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel | AmperHost</title>
+    <link rel="icon" href="img/logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .login-container {
+            max-width: 300px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .order-list {
+            max-width: 800px;
+            margin: auto;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        .order-item p {
+            margin: 5px 0;
+        }
+
+        .edit-form {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            margin-top: 10px;
+        }
+
+        .edit-form input,
+        .edit-form select {
+            margin-bottom: 5px;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .edit-form button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .delete-button {
+            padding: 8px 15px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        .delete-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        .search-container button {
+            padding: 8px 15px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #005F6B;
+        }
+
+        .reset-button {
+            margin-left: 10px;
+            background-color: #f44336;
+        }
+
+        .reset-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Panel administracyjny</h2>
+    <div class="login-container" id="loginContainer">
+        <h3>Logowanie</h3>
+        <input type="password" id="passwordInput" placeholder="Wprowadź hasło...">
+        <button onclick="login()">Zaloguj się</button>
+    </div>
+
+    <div class="order-list" id="orderList">
+    </div>
+
+    <script>
+        var authenticated = false;
+
+        function login() {
+            var password = document.getElementById('passwordInput').value;
+            if (password === 'test123') {
+                authenticated = true;
+                document.getElementById('loginContainer').style.display = 'none';
+                displayOrders();
+            } else {
+                alert('Nieprawidłowe hasło. Spróbuj ponownie.');
+            }
+        }
+
+        function displayOrders() {
+            if (!authenticated) return;
+
+            var orders = JSON.parse(localStorage.getItem("orders")) || [];
+            var orderListDiv = document.getElementById("orderList");
+            orderListDiv.innerHTML = "";
+            orders.forEach(function (order) {
+                var orderItemDiv = document.createElement("div");
+                orderItemDiv.classList.add("order-item");
+                orderItemDiv.id = "orderItem" + order.id;
+                orderItemDiv.innerHTML = "<p><strong>ID zamówienia:</strong> " + order.id + "</p>" +
+                    "<p><strong>Pakiet:</strong> " + order.pakiet + "</p>" +
+                    "<p><strong>Okres:</strong> " + order.okres + " dni</p>" +
+                    "<p><strong>Forma płatności:</strong> " + order.platnosc + "</p>" +
+                    "<p><strong>Kwota do zapłaty:</strong> " + order.kwota + " PLN</p>" +
+                    "<button onclick='deleteOrder(" + order.id + ")' class='delete-button'>Usuń</button>";
+                orderListDiv.appendChild(orderItemDiv);
+            });
+        }
+
+        function deleteOrder(id) {
+            if (!authenticated) return;
+
+            var orders = JSON.parse(localStorage.getItem("orders")) || [];
+            var filteredOrders = orders.filter(function (order) {
+                return order.id !== id;
+            });
+
+            localStorage.setItem("orders", JSON.stringify(filteredOrders));
+            displayOrders();
+        }
+    </script>
+</body>
+
+</html>

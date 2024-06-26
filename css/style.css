@@ -1,0 +1,211 @@
+body {
+    background: url('https://i.imgur.com/lOvBHPp.jpg') no-repeat fixed center;
+    background-size: cover;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #1c1c1c;
+    padding: 10px 20px;
+    color: white;
+    border-bottom: 2px solid #333;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 1.5em;
+    color: #ff6347;
+    font-weight: bold;
+}
+
+.navbar-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+    color: #ff6347;
+}
+
+.hero {
+    background: rgba(0, 0, 0, 0.5) url('https://i.imgur.com/lOvBHPp.jpg') no-repeat fixed center;
+    background-size: cover;
+    height: 70vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.hero p {
+    font-size: 24px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.cta-button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #e64a19;
+}
+
+.offer,
+.advantages {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.card {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    border: 1px solid #333;
+}
+
+.card h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.advantages .advantage {
+    background-color: #1e1e1e;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    border: 1px solid #333;
+}
+
+.advantages .advantage h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.advantages .advantage p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 2px solid #555;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-section h3 {
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 10px 0;
+}
+
+.footer-section a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+.gradient-text {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FF5733, #FFBD33, #75FF33, #33FF57, #33FFBD, #3375FF, #5733FF, #BD33FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
