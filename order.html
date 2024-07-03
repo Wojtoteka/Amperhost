@@ -124,29 +124,6 @@
         .close-btn button:hover {
             background-color: #bbb;
         }
-
-        .admin-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .order-container {
-            max-width: 800px;
-            margin: auto;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-top: 80px;
-        }
     </style>
 </head>
 
@@ -299,13 +276,6 @@
             localStorage.setItem("orders", JSON.stringify(orders));
         }
     </script>
-
-    <script>
-        function openAdminPanel() {
-            window.open('admin.html', '_blank');
-        }
-    </script>
-
 </body>
 
 </html>
