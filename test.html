@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serwer Minecraft - Zamówienie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Serwer Minecraft - Zamówienie</h1>
+    <form id="orderForm">
+        <label for="ram">Ilość RAM (1GB - 16GB):</label>
+        <input type="number" id="ram" name="ram" min="1" max="16" required>
+        
+        <label for="storage">Ilość dysku (5GB - 100GB):</label>
+        <input type="number" id="storage" name="storage" min="5" max="100" required>
+        
+        <label for="period">Okres rozliczenia:</label>
+        <select id="period" name="period" required>
+            <option value="7">7 dni</option>
+            <option value="30">30 dni</option>
+            <option value="60">60 dni</option>
+            <option value="90">90 dni</option>
+        </select>
+        
+        <button type="button" onclick="calculatePrice()">Oblicz cenę</button>
+        
+        <div class="result" id="result"></div>
+    </form>
+
+    <script>
+        function calculatePrice() {
+            const ram = parseInt(document.getElementById('ram').value);
+            const storage = parseInt(document.getElementById('storage').value);
+            const period = parseInt(document.getElementById('period').value);
+
+            if (isNaN(ram) || isNaN(storage) || isNaN(period)) {
+                alert("Proszę wprowadzić wszystkie wartości poprawnie.");
+                return;
+            }
+
+            // Przykładowe ceny (można dostosować według własnego uznania)
+            const pricePerGBRam = 10; // Cena za 1 GB RAM
+            const pricePerGBStorage = 1; // Cena za 1 GB dysku
+            const discountForPeriod = period / 30; // Proporcjonalna zniżka na okres rozliczenia
+
+            const totalPrice = (ram * pricePerGBRam + storage * pricePerGBStorage) * discountForPeriod;
+
+            document.getElementById('result').innerText = `Całkowita cena: ${totalPrice.toFixed(2)} PLN`;
+        }
+    </script>
+</body>
+</html>
