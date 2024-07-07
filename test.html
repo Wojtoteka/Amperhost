@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serwer Minecraft - Zamówienie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             max-width: 600px;
             margin: auto;
             padding: 20px;
+            background-color: #e9f5e9;
+            color: #333;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        h1 {
+            color: #4CAF50;
         }
         label {
             display: block;
@@ -19,6 +39,8 @@
             width: 100%;
             padding: 8px;
             margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
         button {
             display: block;
@@ -27,8 +49,10 @@
             background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 5px;
             margin-top: 20px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #45a049;
@@ -36,10 +60,44 @@
         .result {
             margin-top: 20px;
             font-size: 1.2em;
+            cursor: pointer;
+            text-decoration: underline;
+            color: #4CAF50;
+        }
+        #orderModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            text-align: center;
+        }
+        #orderModal button {
+            margin-top: 20px;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
-<body>
+<body data-aos="fade-up">
+
+    <nav>
+        <a href="#">Strona Główna</a>
+    </nav>
+
     <h1>Serwer Minecraft - Zamówienie</h1>
     <form id="orderForm">
         <label for="ram">Ilość RAM (1GB - 16GB):</label>
@@ -58,10 +116,19 @@
         
         <button type="button" onclick="calculatePrice()">Oblicz cenę</button>
         
-        <div class="result" id="result"></div>
+        <div class="result" id="result" onclick="openModal()"></div>
     </form>
 
+    <div id="orderModal">
+        <p>Aby zamówić serwer, najpierw dołącz do naszego <a href="https://discord.com" target="_blank">Discorda</a> i podaj parametry serwera.</p>
+        <button onclick="closeModal()">Zamknij</button>
+    </div>
+    <div id="overlay" onclick="closeModal()"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        AOS.init();
+
         function calculatePrice() {
             const ram = parseInt(document.getElementById('ram').value);
             const storage = parseInt(document.getElementById('storage').value);
@@ -79,7 +146,19 @@
 
             const totalPrice = (ram * pricePerGBRam + storage * pricePerGBStorage) * discountForPeriod;
 
-            document.getElementById('result').innerText = `Całkowita cena: ${totalPrice.toFixed(2)} PLN`;
+            const resultElement = document.getElementById('result');
+            resultElement.innerText = `Całkowita cena: ${totalPrice.toFixed(2)} PLN`;
+            resultElement.style.display = 'block';
+        }
+
+        function openModal() {
+            document.getElementById('orderModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </body>
