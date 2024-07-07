@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>h1{color:white}a{color:white}p{color:white;text-decoration:none}a:hover{text-decoration:line-through}body{background-color:black;position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);font-family:'Ubuntu Mono', monospace}</style>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+<title>Error 404</title>
+</head>
+<body>
+<center>
+<img src="https://i.imgur.com/XhCPfuz.gif">
+<h1>404: Nie znaleziono</h1><br>
+<a href="/">Wróć do strony głównej</a>
+</center>
+<footer>
+<br>
+<p>Copyright &copy; 2024 AmperHost.xyz // Created by @smutex</p>
+</footer>
+</body>
+</html>
