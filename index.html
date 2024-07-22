@@ -1,109 +1,333 @@
+<!--
+	Template made by: Rick Klaasboer
+	www.rickklaasboer.online
+-->
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona główna | AmperHost</title>
-    <link rel="icon" href="img/logo.png">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<title>AmperHost - Hosting serwerów minecraft</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+
+	<!-- SEO -->
+	<meta name="keywords" content="hosting, hosting Minecraft, hosting serwerów Minecraft, serwery Minecraft, tani hosting Minecraft, szybki hosting Minecraft, niezawodny hosting Minecraft, amperhost.xyz, hosting gier, hosting dla graczy, hosting serwerów gier, bezpieczny hosting Minecraft, ochrona DDoS Minecraft, kopie zapasowe Minecraft, zaawansowany hosting Minecraft, zarządzanie serwerami Minecraft, wsparcie techniczne 24/7 Minecraft, hosting dla małych serwerów Minecraft, hosting dla dużych serwerów Minecraft, infrastruktura hostingowa Minecraft, serwery VPS Minecraft, serwery chmurowe Minecraft, zarządzanie hostingiem Minecraft, skalowalny hosting Minecraft, hosting na miarę Minecraft, rozwój serwerów Minecraft, usługi hostingowe Minecraft, platforma hostingowa Minecraft, hosting aplikacji Minecraft, hosting na wysokim poziomie Minecraft, hosting premium Minecraft, hosting profesjonalny Minecraft, hosting bez przestojów Minecraft, hosting z szybką obsługą Minecraft, hosting www Minecraft, serwery www Minecraft, hosting dedykowany Minecraft, hosting współdzielony Minecraft, AmperHost Minecraft, najlepszy hosting Minecraft, hosting z wsparciem Minecraft, hosting modów Minecraft, serwery Bukkit, serwery Spigot, serwery Paper, hosting pluginów Minecraft, serwery wieloosobowe Minecraft, hosting dla społeczności Minecraft.">
+	<meta name="description" content="Amperhost.xyz oferuje szybki, niezawodny i bezpieczny hosting serwerów Minecraft, dostosowany do potrzeb zarówno małych, jak i dużych społeczności graczy. Zapewniamy ochronę DDoS oraz wsparcie techniczne 24/7.">
+
+	<!-- Custom CSS for this template -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> 
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-grid.min.css">
+	<link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.min.js">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-light.css">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
 </head>
-
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar-left">
-                <img src="img/logo.png" alt="" class="logo">
-                <span class="brand-name">AmperHost.xyz</span>
-            </div>
-            <div class="navbar-right">
-                <a href="/">Strona główna</a>
-                <a href="https://amperhost.xyz/soon">Oferta</a>
-                <a href="#advantage">Zalety</a>
-                <a href="https://panel.amperhost.xyz">Panel</a>
-            </div>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <h1>Najlepszy Hosting Minecraft</h1>
-        <p>Stwórz własny serwer Minecraft szybko i łatwo!</p>
-        <a href="#offer" class="cta-button">Sprawdź ofertę</a>
-    </section>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button> 
+	
+	<!-- Navbar -->
+	<div class="topnav" id="myTopnav">
+		<div class="max-width">
+			  <a href="#head">Strona główna</a>
+			  <a href="#about">O nas</a>
+			  <a href="#offer">Oferta</a>
+			  <a href="#staff">Zarząd</a>
+			  <a href="https://dc.amperhost.xyz/" target="_blank">Serwer discord</a>
+			  <a href="" target="_blank">Status serwerów</a>
+			  <a href="https://panel.amperhost.xyz/" target="_blank">Panel</a>
+		  	  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+	</div>
+	<!-- End Navbar -->
 
-    <section id="offer" class="offer">
-        <h1>Nasza oferta</h1>
-        <div class="card">
-            <h3>Pakiet Dirt</h3>
-            <p>Idealny dla małych serwerów.</p>
-            <p>RAM: <abbr title="">2 GB</abbr></p>
-            <p>Dysk: <abbr title="">5 GB</abbr></p>
-            <br>
-            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
-        </div>
-        <div class="card">
-            <h3>Pakiet Iron</h3>
-            <p>Idealny dla średnich serwerów.</p>
-            <p>RAM: <abbr title="">5 GB</abbr></p>
-            <p>Dysk: <abbr title="">10 GB</abbr></p>
-            <br>
-            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
-        </div>
-        <div class="card">
-            <h3>Pakiet Diax</h3>
-            <p>Idealny dla dużych serwerów.</p>
-            <p>RAM: <abbr title="">8 GB</abbr></p>
-            <p>Dysk: <abbr title="">15 GB</abbr></p>
-            <br>
-            <p class="gradient-text"><a href="order.html">KLIKNIJ, ABY OBLICZYĆ CENĘ</a></p>
-        </div>
-    </section>
+	<!-- Header (Banner) -->
+	<header id="head" class="parallax">
+		<h1>Twój hosting serwerów minecraft</h1>
+		<h3>amperhost.xyz</h3>
+	</header>
+	<!-- End Header -->
 
-    <section id="advantage" class="advantages">
-        <h1>Dlaczego my?</h1>
-        <div class="advantage">
-            <h3>Wysoka wydajność</h3>
-            <p>Nasze serwery oferują najwyższą wydajność i niezawodność.</p>
-        </div>
-        <div class="advantage">
-            <h3>Pomoc 24/7</h3>
-            <p>Nasza pomoc techniczna jest dostępna przez cały czas.</p>
-        </div>
-        <div class="advantage">
-            <h3>Panel WWW</h3>
-            <p>Intuicyjny panel zarządzania ułatwia kontrolowanie serwera.</p>
-        </div>
-    </section>
+	<!-- About Section -->
+	<section id="about">
+		<h1>Dlaczego my?</h1>
+		<p>Trochę naszych zalet.</p>
+		<hr>
+		<!-- First row of features -->
+		<div class="row features">
+			<div class="col">
+				<i class="fa-duotone fa-solid fa-microchip feature"></i>
+				<h2>Wysoka wydajność</h2>
+				<p>Nasze serwery są wyposażone w najszybsze dostępne na rynku procesory AMD Ryzen 9 7950X3D.</p>
+			</div>
+			<div class="col">
+				<i class="fa-solid fa-fire feature"></i>
+				<h2>Bezpieczeństwo</h2>
+				<p>Zapewniamy potężną ochronę przed atakami DDoS o przepustowości ponad 17 Tbps.</p>
+			</div>
+			<div class="col">
+				<i class="fa-solid fa-badge-check feature"></i>
+				<h2>Zawsze online</h2>
+				<p>Nasze serwery mają 99.9% Uptime, więc będziesz mógł mieć do nich dostęp przez cały czas!</p>
+			</div>
+		</div>
+		<!-- End first row -->
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Pomoc</h3>
-                <p><a href="mailto:kontakt@amperhost.xyz">▪︎ kontakt@amperhost.xyz</a></p>
-                <p><a href="https://dc.amperhost.xyz">▪︎ Serwer Discord</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Informacje</h3>
-                <p><a href="https://amperhost.xyz/policy">▪︎ Polityka prywatności</a></p>
-                <p><a href="https://amperhost.xyz/tos">▪︎ Regulamin</a></p>
-            </div>
-        </div>
-        <p>&copy; <span id="current-year"></span> AmperHost.xyz. Wszelkie prawa zastrzeżone.</p>
-    </footer>
+		<!-- Note: You can add as many feature rows as you like. -->
+	</section>
+	<!-- End about section -->
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const yearSpan = document.getElementById('current-year');
-            const currentYear = new Date().getFullYear();
-            yearSpan.textContent = currentYear;
-        });
-    </script>
+	<!-- Banner 1 -->
+	<section id="banner" class="parallax">
+		<h1>Na co czekasz?</h1>
+		<h2>Dołącz na nasz serwer discord już teraz na <a href="https://dc.amperhost.xyz/" target="_blank">dc.amperhost.xyz</a></h2>
+	</section>
+	<!-- End Banner 1 -->
 
-    <script>
-        AOS.init();
-    </script>
+	<!-- Offers Section -->
+	<section id="offer">
+		<h1>Oferta</h1>
+		<hr>
+		<!-- First row of features -->
+		<div class="row features">
+			<div class="col">
+				<h2>Pakiet Iron</h2>
+				<hr>
+				<p>
+					<i class="fa-solid fa-memory"></i>
+					RAM: 2 GB + 512 MB DDR5
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-hard-drive"></i>
+					Dysk: 5 GB SSD NVME
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-network-wired"></i>
+					Łącze sieciowe: 10 Gb/s
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-sack-dollar"></i>
+					Koszt: 10 zł/miesiąc
+				</p>
+				<hr>
+			</div>
+			<div class="col">
+				<h2>Pakiet Gold</h2>
+				<hr>
+				<p>
+					<i class="fa-solid fa-memory"></i>
+					RAM: 4 GB + 1 GB DDR5
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-hard-drive"></i>
+					Dysk: 10 GB SSD NVME
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-network-wired"></i>
+					Łącze sieciowe: 10 Gb/s
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-sack-dollar"></i>
+					Koszt: 20 zł/miesiąc
+				</p>
+				<hr>
+			</div>
+			<div class="col">
+				<h2>Pakiet Diax</h2>
+				<hr>
+				<p style="display: inline;">
+					<i class="fa-solid fa-memory"></i>
+					RAM: 
+					<div class="tooltip">
+						<!-- <abbr title=""><span style="font-size: 18px; font-family: 'Lato', sans-serif;">Bez limitu</span></abbr> -->
+						<span style="font-size: 18px; font-family: 'Lato', sans-serif; text-decoration: underline;">Bez limitu <i class="fa-solid fa-circle-info"></i></span>
+						<span class="tooltiptext">Przydział rozpoczynany jest od wartości początkowej 6 GB i może być zwiększony w razie większego zapotrzebowania serwera.</span>
+					</div>
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-hard-drive"></i>
+					Dysk: 15 GB SSD NVME
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-network-wired"></i>
+					Łącze sieciowe: 10 Gb/s
+				</p>
+				<hr>
+				<p>
+					<i class="fa-solid fa-sack-dollar"></i>
+					Koszt: 30 zł/miesiąc
+				</p>
+				<hr>
+			</div>
+		</div>
+		<!-- End first row -->
+		<div class="col">
+			<br>
+			<p style="color: #5352ed; font-size: 20px;">*Zamówienia można składać na naszym discordzie.</p>
+		</div>
+
+		<!-- Note: You can add as many feature rows as you like. -->
+	</section>
+	<!-- End Offers Section -->
+
+	<!-- Second Banner -->
+	<section id="banner3" class="parallax">
+		<h1>Masz pytania?</h1>
+		<h2>Skontaktuj się znami przez <i><a href="mailto:#">kontakt@amperhost.xyz</a></i></h2>
+	</section>
+	<!-- End Second Section -->
+
+	<!-- Staff Section -->
+	<section id="staff">
+		<h1>Nasz zarząd</h1>
+		<p>Członkowie zarządu naszego serwera</p>
+		<hr>
+		<!-- First Row Staff -->
+		<div class="row stafflist">
+			<!-- First Staff Member -->
+			<div class="col-md staffblock">
+				<img width="100px;" src="./img/smutex.png" alt="minecraft face">
+				<h2>Smutex</h2>
+				<p>Właściciel</p>
+			</div>
+			<!-- End First Staff Member -->
+
+			<!-- Second Staff Member -->
+			<div class="col-md staffblock">
+				<img width="100px;" src="./img/wojtoteka.png">
+				<h2>Wojtoteka</h2>
+				<p>Właściciel</p>
+			</div>
+			<!-- End Second Staf Member -->
+
+			<!-- Third Staff Member -->
+			<div class="col-md staffblock">
+				<img width="100px;" src="./img/face.png" alt="minecraft face">
+				<h2>Fafikk</h2>
+				<p>Developer</p>
+			</div>
+			<!-- End Third Staff Member -->
+			 <!-- Fourth Staff Member -->
+			<div class="col-md staffblock">
+				<img width="100px;" src="./img/juzio.png" alt="minecraft face">
+				<h2>Juzio</h2>
+				<p>Support</p>
+			</div>
+			<!-- End Fourth Staff Member -->
+		</div>
+		<!-- End First Row Staff -->
+	</section>
+	<!-- End Staff Section -->
+
+	<!-- Footer -->
+	<footer>
+		<div class="footer">
+			<div class="copyright-notice">
+				<!-- !! Replace this with your own domain !! -->
+				<p>
+					amperhost.xyz &copy; 
+					<script>
+						let date = new Date();
+						let current_year = date.getFullYear();
+						document.write(current_year);
+					</script>
+					| All rights reserved
+				</p>
+				<!-- If you want to, you're allowed to delete these credits. But if you want to support my work, please leave it. -->
+				<p>Made with <font color="red">❤</font> by <a target="_blank" href="https://www.rickklaasboer.nl/">Rick Klaasboer</a>.</font></p>
+				<p>Edited by <a href="https://fafik.xyz/" target="_blank">Fafikk</a> for <a href="https://amperhost.xyz/">AmperHost</a>.</p>
+				<hr>
+				<p>
+					<a href="https://amperhost.xyz/policy" target="_blank">Regulamin</a> | <a href="https://amperhost.xyz/policy" target="_blank">Polityka prywatności</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+
+	<!-- Smooth Scrolling Script (from https://goo.gl/uWLqWu) | Do not touch if you don't know what you're doing! -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  // Add smooth scrolling to all links
+		  $("a").on('click', function(event) {
+
+		    // Make sure this.hash has a value before overriding default behavior
+		    if (this.hash !== "") {
+		      // Prevent default anchor click behavior
+		      event.preventDefault();
+
+		      // Store hash
+		      var hash = this.hash;
+
+		      // Using jQuery's animate() method to add smooth page scroll
+		      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		      $('html, body').animate({
+		        scrollTop: $(hash).offset().top
+		      }, 100, function(){
+		   
+		        // Add hash (#) to URL when done scrolling (default click behavior)
+		        window.location.hash = hash;
+		      });
+		    } // End if
+		  });
+		});
+	</script>
+	<!-- End Smooth Scrolling Script -->
+
+	<script>
+		function myFunction() {
+		    var x = document.getElementById("myTopnav");
+		    if (x.className === "topnav") {
+		        x.className += " responsive";
+		    } else {
+		        x.className = "topnav";
+		    }
+		}
+	</script>
+
+	<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+	        document.getElementById("myBtn").style.display = "block";
+	    } else {
+	        document.getElementById("myBtn").style.display = "none";
+	    }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	    document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+	}
+	</script>
+
 </body>
-
 </html>
